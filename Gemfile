@@ -14,13 +14,9 @@ gem "table_print"
 gem "faker"
 
 # Use postgresql as the database for Active Record
-group :development, :test do
-  gem 'sqlite3'
-end
 
-group :production do
-  gem 'pg', '~> 0.18'
-end
+  gem 'pg'
+
 
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", "~> 5.0"
@@ -55,6 +51,8 @@ gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", require: false
 
+
+gem 'dotenv-rails'
 # Use Sass to process CSS
 # gem "sassc-rails"
 
