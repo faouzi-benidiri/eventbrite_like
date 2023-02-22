@@ -1,29 +1,21 @@
 <div class="jumbotron">
         <div class="container">
-          <h1 class="display-3">EvnetbriteLike!</h1>
+          <h1 class="display-3">EventbriteLike!</h1>
           <p>notre site vous permet de crerr vos evenement facilement, vous aurez acces a une multitude de fonctionalité pour editer et proumouvoir votre evenement.</p>
+          <% if signed_in? %>
           <p><%= link_to "créer un évenement", new_event_path, class: "btn btn-success my-2" %>
+          <% end %>
         </div>
       </div>
-      <div class="container">
+      <div class="container" style="width: 1500px;">
 <% @events.each do |event| %>
       
         <!-- Example row of columns -->
         <div class="row">
-          <div class="col-md-4">
+          <div class="col-xl-4">
             <h2><%= event.title %></h2>
             <p><%= event.description %></p>
-            <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
+           <p><%= link_to "voir l'évenement", event_path(event), class: "btn btn-secondary my-2" %>
           </div>
-          <div class="col-md-4">
-            <h2><%= event.title %></h2>
-            <p><%= event.description %></p>
-            <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
           </div>
-          <div class="col-md-4">
-            <h2><%= event.title %></h2>
-            <p><%= event.description %></p>
-            <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
-          </div>
-        </div>
 <% end %>

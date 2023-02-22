@@ -1,0 +1,12 @@
+<div class="container" style="width: 900px;">
+<h1><%= bienvenue @user.first_name %></h1>
+
+profil informations
+<br/>
+            <h2><%= @user.first_name %></h2>
+            <h2><%= @user.last_name %></h2>
+            <p><%= @user.description %></p>
+            
+ <p><%= link_to "revenir a la page d'acceuil", welcome_index_path(@event.id), class: "btn btn-primary my-2" %>
+
+</div>

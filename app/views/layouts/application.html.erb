@@ -12,7 +12,9 @@
   </head>
 
   <body>
-  <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+  
+  <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark";>
+  
       <a class="navbar-brand" href="#">EvnetbriteLike</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -28,7 +30,7 @@
         <ul>
   <% if user_signed_in? %>
     <li>
-      <%= link_to "Sign out", destroy_user_session_path,class: "btn btn-danger my-2", method: :delete %>
+      <%= link_to "Sign out", destroy_user_session_path,class: "btn btn-danger my-2", 'data-turbo-method': :delete %>
   <%= link_to "Edit email / password", edit_user_registration_path, class: "btn btn-warning my-2" %>
     </li>
   <% else %>
@@ -43,7 +45,7 @@
          <%# <p><%= link_to "inscription", new_user_registration_path, class: "btn btn-primary my-2" %> %> %>
 </div>
     </nav>
-    <div style="padding-top: 5rem;">
+    <div style="padding-top: 7rem;">
       <%= yield %>
   </div>
   </body>

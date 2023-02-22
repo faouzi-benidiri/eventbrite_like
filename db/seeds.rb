@@ -7,10 +7,9 @@
 #   Character.create(name: "Luke", movie: movies.first)
 require 'faker'
 
-
-nb_user = 20
-nb_events = 10
-nb_guests = 20
+nb_user = 30
+nb_events = 5
+nb_guests = 30
 
 
 nb_user.times do |x|
@@ -18,7 +17,7 @@ nb_user.times do |x|
       email: Faker::Name.first_name+'@yopmail.com',
       first_name: Faker::Name.first_name,
       last_name: Faker::Name.last_name,
-      description: Faker::Lorem.paragraph_by_chars(number: 200, supplemental: false))
+      description: Faker::Lorem.paragraph_by_chars(number: 200, supplemental: false)).save(validate: false)
   puts "Seeding of User nb #{x}"
 end
 
@@ -34,13 +33,13 @@ nb_events.times do |x|
     location: Faker::Address.city,
     price: rand(1..1000),
     title: Faker::Book.title,
-    admin_id: User.all.sample.id)
+    admin_id: User.all.sample.id).save(validate: false)
   puts "Seeding of Event nb #{x}"
 end
 
 nb_guests.times do |x|
   Attendance.create(
     user_id: User.all.sample.id,
-    event_id: Event.all.sample.id)
+    event_id: Event.all.sample.id).save(validate: false)
   puts "Seeding of Guest nb #{x}"
 end

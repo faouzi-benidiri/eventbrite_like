@@ -1,35 +1,38 @@
-<h1> Créer un evenement</h1>
+<div class="container" style="width: 600px;">
+
+<h1> Créer un évenement</h1>
 
 <%= form_for @event do |f| %>
 <div class="form-group">
-<label> Nom du potin </label> 
+<label> Nom de l'évenement </label> 
    <%= f.text_field :title, class: 'form-control' %>
    
    </div>
    <div class="form-group">
-   <label> start_date </label> 
-   <input type="time" name="wakeup">
-   <%= f.text_area :start_date, class: 'form-control' %>
+   <label> date de début </label> 
+   <%= f.datetime_field :start_date, class: 'form-control' %>
    </div>
    <div class="form-group">
    <label> description </label> 
    <%= f.text_area :description, class: 'form-control' %>
    </div>
    <div class="form-group">
-   <label> duration </label> 
-   <%= f.text_area :duration, class: 'form-control' %>
+   <label> durée </label> 
+   <%= f.number_field :duration, class: 'form-control' %>
    </div>
    <div class="form-group">
-   <label> location </label> 
+   <label> lieux </label> 
    <%= f.text_area :location, class: 'form-control' %>
    </div>
    <div class="form-group">
    <label> price </label> 
-   <%= f.text_area :price, class: 'form-control' %>
+   <%= f.number_field :price, class: 'form-control' %>
    </div>
    <div class="form-group">
-   <button type="submit">Créer l'article</button>
+   <button type="submit" class="btn btn-success">Créer l'événement</button>
    </div>
 <% end %>
 
 <a href="<%= welcome_index_path %>" class="btn btn-primary">revenir a la page d'acceuil</a>
+
+</div>

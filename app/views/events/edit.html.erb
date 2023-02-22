@@ -1,2 +1,38 @@
-<h1>Events#edit</h1>
-<p>Find me in app/views/events/edit.html.erb</p>
+<div class="container" style="width: 600px;">
+
+<h1> Créer un évenement</h1>
+
+<%= form_for @event do |f| %>
+<div class="form-group">
+<label> Nom de l'évenement </label> 
+   <%= f.text_field :title, class: 'form-control' %>
+   
+   </div>
+   <div class="form-group">
+   <label> date de début </label> 
+   <%= f.datetime_field :start_date, class: 'form-control' %>
+   </div>
+   <div class="form-group">
+   <label> description </label> 
+   <%= f.text_area :description, class: 'form-control' %>
+   </div>
+   <div class="form-group">
+   <label> durée </label> 
+   <%= f.number_field :duration, class: 'form-control' %>
+   </div>
+   <div class="form-group">
+   <label> lieux </label> 
+   <%= f.text_area :location, class: 'form-control' %>
+   </div>
+   <div class="form-group">
+   <label> price </label> 
+   <%= f.number_field :price, class: 'form-control' %>
+   </div>
+   <div class="form-group">
+   <button type="submit" class="btn btn-success">Modifier l'événement</button>
+   </div>
+<% end %>
+
+<a href="<%= welcome_index_path %>" class="btn btn-primary">revenir a la page d'acceuil</a>
+<%= link_to "revenir a la page de l'évenement", event_path(@event.id), class: "btn btn-success my-2" %>
+</div>

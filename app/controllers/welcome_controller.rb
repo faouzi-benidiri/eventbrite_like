@@ -3,6 +3,10 @@ class WelcomeController < ApplicationController
     @events = Event.all
   end
 
+  def show
+   
+  end
+
   def secret
   end
 end
