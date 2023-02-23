@@ -1,12 +1,78 @@
-<div class="container" style="width: 900px;">
-<h1><%= bienvenue @user.first_name %></h1>
+<section style="background-color: #eee;">
+  <div class="container py-5">
+    <div class="row">
+      <div class="col">
+        <nav aria-label="breadcrumb" class="bg-light rounded-3 p-3 mb-4">
+          <ol class="breadcrumb mb-0">
+            <%= link_to "Home", welcome_index_path, class: "breadcrumb-item" %>
+            <%= link_to "User", welcome_index_path(@user.id), class: "breadcrumb-item" %>
+            <li class="breadcrumb-item active" aria-current="page">User Profile</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
 
-profil informations
-<br/>
-            <h2><%= @user.first_name %></h2>
-            <h2><%= @user.last_name %></h2>
-            <p><%= @user.description %></p>
+    <div class="row">
+      <div class="col-lg-4">
+        <div class="card mb-4">
+          <div class="card-body text-center">
+            <% if @user.avatar.attached? %>
+              <%= image_tag(@user.avatar, class: "rounded-circle img-fluid", style: "width: 150px;") %>
+              <% else %>
+                <%= image_tag("https://gravatar.com/avatar/ea28cbf007dd2f1767a3dbab3a9d9363?s=400&d=robohash&r=x", class: "rounded-circle img-fluid", style: "width: 150px;") %>
+          <% end %>
+              
+            <h5 class="my-3"><%= @user.first_name %></h5>
             
- <p><%= link_to "revenir a la page d'acceuil", welcome_index_path(@event.id), class: "btn btn-primary my-2" %>
+            <p class="text-muted mb-4"><%= @user.description %></p>
+            <div class="d-flex justify-content-center mb-2">
 
-</div>
+              <%= link_to "Edit password/email",  edit_user_registration_path, class: "btn btn-primary"   %>
+              <%= link_to "Edit User informations",  edit_user_path, class: "btn btn-outline-primary ms-1"%>
+   
+            </div>
+          </div>
+        </div>
+        <div class="card mb-4 mb-lg-0">
+          <div class="card-body p-0">
+            
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-8">
+        <div class="card mb-4">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-sm-3">
+                <p class="mb-0">First Name</p>
+              </div>
+              <div class="col-sm-9">
+                <p class="text-muted mb-0"><%= @user.first_name %></p>
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-sm-3">
+                <p class="mb-0">Last_name</p>
+              </div>
+              <div class="col-sm-9">
+                <p class="text-muted mb-0"><%= @user.last_name %></p>
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-sm-3">
+                <p class="mb-0">Email</p>
+              </div>
+              <div class="col-sm-9">
+                <p class="text-muted mb-0"><%= @user.email %></p>
+              </div>
+            </div>
+            <hr>
+            </div>
+          </div>
+        </div>
+        
+    </div>
+  </div>
+</section>

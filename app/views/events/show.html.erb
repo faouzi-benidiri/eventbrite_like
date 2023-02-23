@@ -1,15 +1,25 @@
-<div class="container" style="width: 900px;">
 
-            <h2><%= @event.title %></h2>
-            <p><%= @event.description %></p>
-            <h3><%= @event.location %></h3>
-            
-<% if current_user && current_user.id == @event.admin_id %>
-<%= link_to "Modifier", edit_event_path(@event.id), class: "btn btn-secondary my-2"   %>
- <%= link_to "Suprimer", event_path(@event.id),class: "btn btn-danger my-2", method: :delete, data: { turbo_method: :delete, turbo_confirm: "Êtes-vous sûr de vouloir supprimer cet élément ?" } %>
- <p><%= link_to "revenir a la page d'acceuil", welcome_index_path(@event.id), class: "btn btn-primary my-2" %>
- <br/>
- <% else %>
- <p><%= link_to "revenir a la page d'acceuil", welcome_index_path(@event.id), class: "btn btn-primary my-2" %>
-<% end %>
-</div>
+    <div class="jumbotron text-center">
+        <div class="container">
+          <h1 class="jumbotron-heading"><%= @event.title %></h1><br/>
+          <p class="lead text-muted"><%= @event.description %></p>
+          <% if @event.image.attached? %>
+              <%= image_tag(@event.image, style: 'width:500px; height:800;') %>
+          <% end %>
+
+
+          <p>
+            <% if current_user && current_user.id == @event.admin_id %>
+                <%= link_to "Modifier", edit_event_path(@event.id), class: "btn btn-secondary my-2"   %>
+                <%= link_to "Suprimer", event_path(@event.id),class: "btn btn-danger my-2", method: :delete, data: { turbo_method: :delete, turbo_confirm: "Êtes-vous sûr de vouloir supprimer cet élément ?" } %><br/>
+                <%= link_to "revenir a la page d'acceuil", welcome_index_path(@event.id), class: "btn btn-primary my-2" %>
+                    <br/>
+            <% else %>
+                <%= link_to "revenir a la page d'acceuil", welcome_index_path(@event.id), class: "btn btn-primary my-2" %>
+            <% end %>
+          </p>
+        </div>
+    </div>
+
+
+

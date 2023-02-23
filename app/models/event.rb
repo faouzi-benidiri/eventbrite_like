@@ -1,4 +1,5 @@
 class Event < ApplicationRecord
+  has_one_attached :image
   belongs_to :admin, class_name: "User"
   has_many :attendances
   has_many :users, through: :attendencies
